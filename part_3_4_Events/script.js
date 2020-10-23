@@ -1,27 +1,26 @@
-/*
-const input = prompt('Enter a text: ');
-const el = document.querySelector('.title');
-
-//el.innerText = input;
-el.innerHTML =`<i>${input}</i>`;
-*/
-// добавить элемент на страницу и положить его внутрь существующего элемента
-// const e = document.createElement('p');
-
-const input = prompt('Enter a message: ');
-const messageEl = document.createElement('p');
-
-messageEl.innerText = input;
-const messageBox = document.querySelector('.messages');
-messageBox.append(messageEl);
-
-setTimeout(hideMessage, 2000);
-// setTimeout(removeMessage, 2000);
-
-function hideMessage() {
-    messageEl.hidden = true;
+function buttonClick() {
+    console.log('Click!');
+    const text = getInputText();
+    addElementToList(text);
+    console.log(text);
+    clearInput();
+    console.log('Clear!');
 }
 
-function removeMessage() {
-    messageEl.remove();
+function getInputText() {
+    const input = document.querySelector('.text-field');
+    return input.value;
+}
+
+function addElementToList(text) {
+    const listItem = document.createElement('li');
+    listItem.innerText = text;
+
+    const list = document.querySelector('.list');
+    list.append(listItem);
+}
+
+function clearInput() {
+    const input = document.querySelector('.text-field');
+    input.value = '';
 }

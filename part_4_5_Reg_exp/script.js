@@ -1,21 +1,8 @@
-function generateKoef(min, max) {
-    const coef = Math.random() * (max - min) + min;
-    return Math.floor(coef);
-}
+const email = prompt('Enter email');
+const regexp = /[a-zA-Z_\.0-9]+@[a-z0-9]+\.[a-z]{2,5}/;
 
-console.log(generateKoef(1, 20));
-
-const a = generateKoef(3, 33);
-const b = generateKoef(4, 44);
-
-const input = prompt(`${a}x = ${b}. x = ?`);
-
-const res = Math.floor(b / a);
-
-if (input == res) {
-    alert('Right');
+if (regexp.test(email)) {
+    console.log('valid email');
 } else {
-    alert('Wrong');
+    alert('Invalid email');
 }
-
-const 
